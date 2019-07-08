@@ -1,0 +1,338 @@
+<!-- JavaScript variables are containers for storing data values. -->
+
+<!-- All JavaScript variables must be identified with unique names.
+
+These unique names are called identifiers.
+
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+The general rules for constructing names for variables (unique identifiers) are:
+
+Names can contain letters, digits, underscores, and dollar signs.
+Names must begin with a letter
+Names can also begin with $ and _ (but we will not use it in this tutorial)
+Names are case sensitive (y and Y are different variables)
+Reserved words (like JavaScript keywords) cannot be used as names 
+
+The "equal to" operator is written like == in JavaScript.
+
+Variables defined with CONST behave like LET variables, except they cannot be reassigned:-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- var let and cons -->
+    <script>
+    
+                  // variable var:  var declarations are globally scoped or function/locally scoped.
+      // It is globally scoped when a var variable is declared outside a function. 
+      //This means that any variable that is declared with var outside a function block
+      // is available for use in the whole window.
+      
+      //globally scoped 
+      var greeter = "hey hi";
+
+      //function scoped
+      function newFunction() {
+          var hello = "hello";
+      }
+
+      console.log(hello); // error: hello is not defined (function scoped)
+      console.log(greeter); // allowed: because greeter is globaly scoped.
+
+      //We'll get an error which is as a result of hello not being available outside the function.
+      //var variables can be re-declared and updated.
+
+
+
+
+                  // Variable let: a let variable cannot be re-declared within its scope.
+    // When using let , you don't have to bother if you have used a name for a variable
+    // before as a variable exists only within its scope.
+    { 
+    let a = 2;
+
+    console.log(a)
+    console.dir(a)
+    // this will work (block scoped)
+    }
+
+    console.log(a)
+    console.dir(a)
+    //this will not work (outside block)
+    
+
+                 // variable const
+    //Variables declared with the const maintain constant values. 
+
+    //const declarations share some similarities with let declarations:
+
+    //1. const declarations are block scoped.
+    //Like let declarations, const declarations can only be accessed within the block it was declared.
+
+
+    //2. const cannot be updated or re-declared
+    //This means that the value of a variable declared with const remains the same within its
+    // scope. It cannot be updated or re-declared. 
+    const flow = {
+        message : "say Hi",
+        times : 4
+    }
+
+    //we cant do this: 
+    const greeting = {
+        words : "Hello",
+        number : "five"
+    }//error :  Assignment to constant variable.
+
+    //but we can do this: 
+    greeting.message = "say Hello instead";
+
+    </script>
+    <h1>Resume var let cons</h1>
+    <ol>
+      <li>var declarations are globally scoped or function scoped
+      while let and const are block scoped.
+      </li>
+
+      <li>var variables can be updated and re-declared within its scope;
+      let variables can be updated but not re-declared;
+      const variables can neither be updated nor re-declared.</li>
+
+      <li>They are all hoisted to the top of their scope
+      but while varvariables are initialized with undefined,
+      let and const variables are not initialized.</li>
+
+      <li>While var and let can be declared without being initialized,
+      const must be initialized during declaration.</li>
+    </ol>
+
+
+
+    <!-- Data Types-->
+    <script>
+      //There are many operations for numbers, e.g. multiplication *, division /,
+      // addition +, subtraction -, and so on.
+      
+    // ****** A number: ******
+    let n = 123;
+    n = 12.345;
+
+    alert( "not a number" / 2 );
+    // NaN, such division is erroneous
+    // NaN = Not a Number
+
+    // ****** A String: ******
+    // A string in JavaScript must be surrounded by quotes!
+    let str = "Hello";
+    let str2 = 'Single quotes are ok too';
+    let phrase = `can embed ${str}`;
+
+
+    //Double and single quotes are “simple” quotes. There’s no difference between them in JavaScript.
+
+    //Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…},
+    //for example:
+
+    let name = "John";
+
+    // embed a variable
+    alert( `Hello, ${name}!` ); // Hello, John!
+
+    // embed an expression
+    alert( `the result is ${1 + 2}` ); // the result is 3
+
+
+
+    // ****** A boolean (logical type): ******
+    //The boolean type has only two values: true and false.
+
+    let nameFieldChecked = true; // yes, name field is checked
+    let ageFieldChecked = false; // no, age field is not checked
+
+
+    //Boolean values also come as a result of comparisons:
+
+    let isGreater = 4 > 1;
+    alert( isGreater ); // true (the comparison result is "yes")
+
+      //The “OR” operator is represented with two vertical line symbols: ||
+      result = a || b;
+      //In classical programming, the logical OR is meant to manipulate boolean values only.
+      // If any of its arguments are true, it returns true, otherwise it returns false.
+
+
+      // ****** Arrays: ******
+      // JavaScript arrays are used to store multiple values in a single variable. Example:
+      var cars = ["Saab", "Volvo", "BMW"];
+
+      //Spaces and line breaks are not important. A declaration can span multiple lines:
+      var cars = [
+      "Saab",
+      "Volvo",
+      "BMW"
+    ];
+
+                 //Access the Elements of an Array:
+      //You access an array element by referring to the index number.
+
+      //This statement accesses the value of the first element in cars:
+      var name = cars[0];
+
+      //example: 
+      var cars = ["Saab", "Volvo", "BMW"];
+      document.getElementById("demo").innerHTML = cars[0];
+
+      //Note: Array indexes start with 0.
+      //[0] is the first element. [1] is the second element.
+
+                  //Changing an Array Element:
+      //This statement changes the value of the first element in cars:
+      cars[0] = "Opel";
+
+      //example:
+      var cars = ["Saab", "Volvo", "BMW"];
+      cars[0] = "Opel";
+      document.getElementById("demo").innerHTML = cars[0];
+
+    </script>
+
+    <h1>Resume Arithmetic operators:</h1>
+
+    <table border="5">
+    <tr>
+    <th>Operator</th>
+    <th>Meaning</th>
+    </tr>
+    <tr>
+    <td>+</td>
+    <td>Addition</td>
+    </tr>
+
+    <tr>
+    <td>-</td>
+    <td> Substraction</td>
+    </tr>
+
+    <tr>
+    <td>*</td>
+    <td>Multiplication</td>
+    </tr>
+
+    <tr>
+    <td>**</td>
+    <td>Exponentiation (ES2016)</td>
+    </tr>
+
+    <tr>
+    <td>/</td>
+    <td>Division</td>
+    </tr>
+
+    <tr>
+    <td>%</td>
+    <td>Modulus (Remainder)</td>
+    </tr>
+
+    <tr>
+    <td>++</td>
+    <td>Increment</td>
+    </tr>
+
+    <tr>
+    <td>--</td>
+    <td>Decrement</td>
+    </tr>
+
+    </table>
+
+    <h1>Resume Assignment operators:</h1>
+    <table border="5">
+    <tr>
+    <th>Operator</th>
+    <th>Meaning</th>
+    <th>Description</th>
+    </tr>
+    <tr>
+    <td>x = y</td>
+    <td>x = y</td>
+    <td>Assigns the value of y to x.</td>
+    </tr>
+    <tr>
+    <td>x += y</td>
+    <td>	x = x + y</td>
+    <td>Assigns the result of x plus y tox.</td>
+    </tr>
+    <tr>
+    <td>x -= y</td>
+    <td>x = x - y</td>
+    <td>Assigns the result of x minus y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x *= y</td>
+    <td>x = x * y</td>
+    <td>Assigns the result of x times y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x /= y</td>
+    <td>x = x / y</td>
+    <td>Assigns the result of x divided by y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x %= y</td>
+    <td>x = x % y</td>
+    <td>Assigns the result of x modulo y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x &=y</td>
+    <td>x = x & y</td>
+    <td>Assigns the result of x AND y tox.</td>
+    </tr>
+
+    <tr>
+    <td>X |=y</td>
+    <td>x =x | y</td>
+    <td>Assigns the result of x OR y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x ^=y</td>
+    <td>x = x ^ y</td>
+    <td>Assigns the result of x XOR y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x <<= y</td>
+    <td>x = x << y'</td>
+    <td>Assigns the result of x shifted left by y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x >>= y</td>
+    <td>x = x >> y</td>
+    <td>Assigns the result of x shifted right (sign preserved) by y tox.</td>
+    </tr>
+
+    <tr>
+    <td>x >>>= y</td>
+    <td>x = x >>> y</td>
+    <td>	Assigns the result of x shifted right by y tox.</td>
+    </tr>
+    </table>
+
+    <script>
+    
+    </script>
+
+</body>
+</html>
